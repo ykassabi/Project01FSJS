@@ -126,7 +126,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 document.onload = printQuote();
 
 //the timer
-var timerQuote = setInterval(function(){ printQuote(); }, 15000);
+var timerQuote = setInterval(function(){ printQuote(); }, 7000);//7 seconds
 
 var stopTimer = function stopTimer() {
     clearInterval(timerQuote);
