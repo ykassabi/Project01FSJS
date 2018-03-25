@@ -80,6 +80,9 @@ function getRandomQuote(){
 // it called getRandomQuote to pick a new quote form the quotes array and color
 // by using the DOM, and .innerHTML we write the quote to html file.
 
+ var currentQuote;
+ var currentBackgroundColor;
+
 function printQuote(){
   getRandomQuote();
   var currentQuote = getRandomQuote()[0];
