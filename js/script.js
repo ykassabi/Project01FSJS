@@ -1,10 +1,8 @@
 
-
-
 /////////////////////////////////////////////////////////////////////// Variables
-//1/ Creating an array of objects(key/value pair) to hold the data for your quotes(8).
+//1/ Creating an array of objects(key/value pair) to hold the data for quotes(8).
 //2/ quote has those keys : quote - source - citation - year - tags
-//etxra/ array of background color
+//extra/ array of background color, I picked the color just to keep a good contract with font color/
 var quotes = [
   {
     quote: "Dwell on the beauty of life. Watch the stars, and see yourself running with them." ,
@@ -68,7 +66,7 @@ var background = ["#0085ff","#0000aa", "#020428","#09c6f9","#3f11dd", "#00aaaa",
 
 
 ///////////////////////////////////////////////////////////////////////Functions
-//3/ Create a function named getRandomQuote, it return an array with [one object and one color hex.]
+//3/ Create a function named getRandomQuote, it return an array with [one object and one color in hex.]
 
 function getRandomQuote(){
   var randomNumberQuote = Math.round(Math.random() * quotes.length);
@@ -111,10 +109,27 @@ function printQuote(){
     document.body.style.background = currentBackgroundColor;
 }
 
+
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+
+
+
+////////////////////////extras
+// a timer to change the quotes.
+// to stop the timer an event listener on the only button.
+
 // picking up a quote on the load of the page
 document.onload = printQuote();
+
+//the timer
+var timerQuote = setInterval(function(){ printQuote(); }, 15000);
+
+var stopTimer = function stopTimer() {
+    clearInterval(timerQuote);
+};
+//to stop the timer just when mouse hover over the button.
+document.getElementById('loadQuote').addEventListener("mouseover", stopTimer, false);
